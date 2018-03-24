@@ -1,0 +1,22 @@
+json-schema-root,
+json-schema-text,
+json-schema-checkbox,
+json-schema-array,
+json-schema-object {
+  display: block;
+}
+json-schema-object > json-schema-object {
+  margin-left: 1em;
+}
+
+json-schema-array,
+json-schema-object {
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
+input.ng-invalid {
+  border: 1px solid red;
+  box-shadow: 0 0 8px 0px red;
+}
