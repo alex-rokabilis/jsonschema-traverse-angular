@@ -8,11 +8,10 @@ export default function($compile) {
     template: `
       <div>
         <label title="{{schema.description}}" for="{{uniqueID}}">{{schema.title}}</label>
-        <input id="{{uniqueID}}" ng-model='data' type='text' 
+        <input id="{{uniqueID}}" ng-model='data' type='number' 
         ng-required="schema.required"
-        ng-minlength="schema.minLength"
-        ng-maxlength="schema.maxLength"
-        ng-pattern="schema.pattern"
+        ng-min="schema.minLength"
+        ng-max="schema.maxLength"
         >
         <ng-transclude></ng-transclude>
       </div>

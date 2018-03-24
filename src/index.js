@@ -7,6 +7,7 @@ import jsonSchemaObject from "./directives/jsonSchemaObject";
 import jsonSchemaArray from "./directives/jsonSchemaArray";
 import jsonSchemaText from "./directives/jsonSchemaText";
 import jsonSchemaCheckbox from "./directives/jsonSchemaCheckbox";
+import jsonSchemaNumber from "./directives/jsonSchemaNumber";
 
 angular
   .module("app", [])
@@ -15,6 +16,7 @@ angular
   .directive("jsonSchemaArray", jsonSchemaArray)
   .directive("jsonSchemaText", jsonSchemaText)
   .directive("jsonSchemaCheckbox", jsonSchemaCheckbox)
+  .directive("jsonSchemaNumber", jsonSchemaNumber)
 
   .controller("mycontroller", function($scope) {
     $scope.about_us;
@@ -65,17 +67,20 @@ angular
           type: "array",
           items: {
             type: "object",
+            // title: "An item containing configuration for this 'about us' element",
             properties: {
               title: { type: "string", title: "Titlos", minLength: 4 },
               sub_title: { type: "string", title: "Ypotitlos" },
               description: { type: "string", title: "Perigrafi" },
+              count: { type: "number", title: "count" },
               image: { type: "string", format: "image", title: "Eikona" }
             },
             additionalProperties: false,
             required: ["title", "image"]
           },
           minItems: 1
-        }
+        },
+        required: ["active", "data"]
       },
       additionalProperties: false
     };

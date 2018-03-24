@@ -4,7 +4,9 @@ export default function($compile) {
   return {
     restrict: "E",
     scope: { data: "=", schema: "=" },
+    transclude: true,
     template: `
+      <ng-transclude></ng-transclude>
       <h3>{{schema.title}}</h3>
     `,
     controller: function($scope, $element, $attrs) {
@@ -27,6 +29,8 @@ export default function($compile) {
         let newSchema = generateID();
         $scope.data[key] = $scope.data[key] || false;
         $scope[newSchema] = schema;
+        $scope[newSchema].required = $scope.schema.required && $scope.schema.required.includes(key);
+
         return $compile(`<json-schema-checkbox schema='${newSchema}' data='data.${key}'></json-schema-checkbox>`)(
           $scope
         );
@@ -36,12 +40,17 @@ export default function($compile) {
         let newSchema = generateID();
         $scope.data[key] = $scope.data[key] || "";
         $scope[newSchema] = schema;
+        $scope[newSchema].required = $scope.schema.required && $scope.schema.required.includes(key);
+
         return $compile(`<json-schema-text schema='${newSchema}' data='data.${key}'></json-schema-text>`)($scope);
       };
 
       const ifNumber = (schema, key) => {
-        //TODO
-        return Number();
+        let newSchema = generateID();
+        $scope.data[key] = $scope.data[key] || 0;
+        $scope[newSchema] = schema;
+        $scope[newSchema].required = $scope.schema.required && $scope.schema.required.includes(key);
+        return $compile(`<json-schema-number schema='${newSchema}' data='data.${key}'></json-schema-number>`)($scope);
       };
 
       const handleSchema = (schema, key) => {

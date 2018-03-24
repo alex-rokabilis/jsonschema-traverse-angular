@@ -16,7 +16,7 @@ json-schema-object {
   border-left: 1px solid;
   border-bottom: 1px solid;
 }
-input.ng-invalid {
+input.ng-invalid.ng-dirty {
   border: 1px solid red;
   box-shadow: 0 0 8px 0px red;
 }

@@ -36,8 +36,10 @@ export default function($compile) {
       };
 
       const ifNumber = (schema, key) => {
-        //TODO
-        return Number();
+        let newSchema = generateID();
+        $scope.data = $scope.data || 0;
+        $scope[newSchema] = schema;
+        return $compile(`<json-schema-number schema='${newSchema}' data='data'></json-schema-number>`)($scope);
       };
 
       const handleSchema = (schema, key) => {
