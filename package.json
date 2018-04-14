@@ -2,7 +2,7 @@
   "name": "jsonschema-traverse-angular",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "dist/jsonSchemaTraverse.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server"

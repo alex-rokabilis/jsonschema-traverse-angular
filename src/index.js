@@ -10,78 +10,78 @@ import jsonSchemaCheckbox from "./directives/jsonSchemaCheckbox";
 import jsonSchemaNumber from "./directives/jsonSchemaNumber";
 
 angular
-  .module("app", [])
+  .module("jsonSchemaTraverse", [])
   .directive("jsonSchemaRoot", jsonSchemaRoot)
   .directive("jsonSchemaObject", jsonSchemaObject)
   .directive("jsonSchemaArray", jsonSchemaArray)
   .directive("jsonSchemaText", jsonSchemaText)
   .directive("jsonSchemaCheckbox", jsonSchemaCheckbox)
-  .directive("jsonSchemaNumber", jsonSchemaNumber)
+  .directive("jsonSchemaNumber", jsonSchemaNumber);
 
-  .controller("mycontroller", function($scope) {
-    $scope.about_us;
+// .controller("mycontroller", function($scope) {
+//   $scope.about_us;
 
-    // $scope.schema = {
-    //   type: "boolean",
-    //   title: "Na einai mple?",
-    //   description: "Ta kanei ola mple"
-    // };
-    // $scope.schema = {
-    //   type: "object",
-    //   title: "Settings for original",
-    //   properties: {
-    //     active: { type: "boolean", title: "Active?" },
-    //     aou: { type: "string", title: "Type your aou" },
-    //     lol: {
-    //       type: "object",
-    //       title: "Settings for lol",
-    //       properties: {
-    //         active2: { type: "boolean", title: "Active2?" },
-    //         names: {
-    //           type: "array",
-    //           title: "The names array",
-    //           items: {
-    //             type: "string",
-    //             title: "Give me a name"
-    //           }
-    //         },
-    //         lol2: {
-    //           title: "Settings for lol2",
-    //           type: "object",
-    //           properties: {
-    //             active3: { type: "boolean", title: "Active3?" }
-    //           }
-    //         }
-    //       }
-    //     }
-    //   }
-    // };
-    $scope.schema = {
-      $id: "about_us/component_1",
-      type: "object",
-      title: "About us configuration",
-      properties: {
-        active: { type: "boolean", title: "Active?" },
-        data: {
-          title: "The array containing the 'about us' elements",
-          type: "array",
-          items: {
-            type: "object",
-            // title: "An item containing configuration for this 'about us' element",
-            properties: {
-              title: { type: "string", title: "Titlos", minLength: 4 },
-              sub_title: { type: "string", title: "Ypotitlos" },
-              description: { type: "string", title: "Perigrafi" },
-              count: { type: "number", title: "count" },
-              image: { type: "string", format: "image", title: "Eikona" }
-            },
-            additionalProperties: false,
-            required: ["title", "image"]
-          },
-          minItems: 1
-        },
-        required: ["active", "data"]
-      },
-      additionalProperties: false
-    };
-  });
+//   // $scope.schema = {
+//   //   type: "boolean",
+//   //   title: "Na einai mple?",
+//   //   description: "Ta kanei ola mple"
+//   // };
+//   // $scope.schema = {
+//   //   type: "object",
+//   //   title: "Settings for original",
+//   //   properties: {
+//   //     active: { type: "boolean", title: "Active?" },
+//   //     aou: { type: "string", title: "Type your aou" },
+//   //     lol: {
+//   //       type: "object",
+//   //       title: "Settings for lol",
+//   //       properties: {
+//   //         active2: { type: "boolean", title: "Active2?" },
+//   //         names: {
+//   //           type: "array",
+//   //           title: "The names array",
+//   //           items: {
+//   //             type: "string",
+//   //             title: "Give me a name"
+//   //           }
+//   //         },
+//   //         lol2: {
+//   //           title: "Settings for lol2",
+//   //           type: "object",
+//   //           properties: {
+//   //             active3: { type: "boolean", title: "Active3?" }
+//   //           }
+//   //         }
+//   //       }
+//   //     }
+//   //   }
+//   // };
+//   $scope.schema = {
+//     $id: "about_us/component_1",
+//     type: "object",
+//     title: "About us configuration",
+//     properties: {
+//       active: { type: "boolean", title: "Active?" },
+//       data: {
+//         title: "The array containing the 'about us' elements",
+//         type: "array",
+//         items: {
+//           type: "object",
+//           // title: "An item containing configuration for this 'about us' element",
+//           properties: {
+//             title: { type: "string", title: "Titlos", minLength: 4 },
+//             sub_title: { type: "string", title: "Ypotitlos" },
+//             description: { type: "string", title: "Perigrafi" },
+//             count: { type: "number", title: "count" },
+//             image: { type: "string", format: "image", title: "Eikona" }
+//           },
+//           additionalProperties: false,
+//           required: ["title", "image"]
+//         },
+//         minItems: 1
+//       },
+//       required: ["active", "data"]
+//     },
+//     additionalProperties: false
+//   };
+// });

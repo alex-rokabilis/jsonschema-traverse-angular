@@ -5,7 +5,9 @@ module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    filename: "bundle.js",
+    library: "jsonSchemaTraverse",
+    libraryTarget: "umd",
+    filename: "jsonSchemaTraverse.js",
     path: path.resolve(__dirname, "dist")
   },
   devServer: {
@@ -19,10 +21,13 @@ module.exports = {
       }
     ]
   },
+  externals: {
+    angular: "angular"
+  },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: "Output Management",
-      template: "src/index.html"
-    })
+    // new HtmlWebpackPlugin({
+    //   title: "Output Management",
+    //   template: "src/index.html"
+    // })
   ]
 };
